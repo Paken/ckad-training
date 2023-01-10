@@ -7,5 +7,5 @@ metadata:
     app: nginx
 spec:
   containers:
-    image: nginx-alpine
+  - image: nginx:alpine
     name: nginx
