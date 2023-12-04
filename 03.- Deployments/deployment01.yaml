@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dep01
+  name: dep01
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dep01
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate  
+  template:
+    metadata:
+      labels:
+        app: dep01
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
