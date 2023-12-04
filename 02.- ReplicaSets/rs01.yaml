@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: rs01
+  name: rs01
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rs01
+  template:
+    metadata:
+      labels:
+        app: rs01
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
